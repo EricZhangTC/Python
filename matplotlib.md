@@ -36,5 +36,9 @@ plt.xlabel("time")
 plt.ylabel("wendu")
 plt.title("time-wendu")
 
+#绘制网格
+plt.grid()
+
+
 plt.plot(x,y)
 plt.show()
