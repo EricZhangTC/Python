@@ -12,7 +12,7 @@ plt.plot(x,y)
 #plt.savefig("./sig_size.png")
 plt.show()
 
-
+--------------------------------------------------------------------------------------------
 from matplotlib import pyplot as plt
 import random
 from matplotlib import font_manager
@@ -25,20 +25,29 @@ from matplotlib import font_manager
 #my_font=font_manager.Fontproperties(fname="字体地址")
 x=range(0,120)
 y=[random.randint(20,35) for i in range(120)]
+y1=[random.randint(15,30) for i in range(120)]
+
 fig=plt.figure(figsize=(20,8),dpi=80)
 #调整x轴的刻度
 _x=list(x)
 #取步长，数字与字符串一一对应，数据的长度一样
 _xticks_label=["10:{}".format(i) for i in range(60)]
+
 _xticks_label+=["11:{}".format(i) for i in range(60)]
-plt.xticks(_x[::5],_xticks_label[::5],rotation=45)#rotation表示旋转90度
+
+plt.xticks(_x[::5],_xticks_label[::5],rotation=45)#rotation表示旋转多少度
+
 plt.xlabel("time")
-plt.ylabel("wendu")
-plt.title("time-wendu")
+plt.ylabel("temperature")
+plt.title("time-temperature")
 
 #绘制网格
-plt.grid()
+plt.grid(alpha=0.3,linestyle="--")#网格透明度
 
+plt.plot(x,y,label='y',color="cyan",linestyle="--")
+plt.plot(x,y1,label='y1',color="orange",linestyle="--")
 
-plt.plot(x,y)
+#添加图例
+plt.legend()#如果在里面添加中文则：prop=my_font
+
 plt.show()
